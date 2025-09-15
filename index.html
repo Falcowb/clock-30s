@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -398,6 +399,25 @@ reset(withAnimation = false) { // 增加一个参数，并设置默认值为fals
 
             complete() {
                 this.stop();
+
+                // ==================【在这里添加EmailJS代码】==================
+    try {
+        // 初始化EmailJS，传入你的Public Key
+        emailjs.init("YOUR_PUBLIC_KEY"); 
+
+        // 发送邮件
+        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID")
+            .then(function(response) {
+               console.log('邮件发送成功!', response.status, response.text);
+            }, function(error) {
+               console.log('邮件发送失败...', error);
+            });
+
+    } catch(e) {
+        console.error('发送邮件时出错:', e);
+    }
+    // ==================【添加代码结束】======================
+                
                 this.currentTime = 0;
                 this.activePointer.style.transform = 'rotate(360deg)';
                 this.activePointer.className = 'group-3 stopped';
