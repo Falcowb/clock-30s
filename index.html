@@ -403,10 +403,10 @@ reset(withAnimation = false) { // 增加一个参数，并设置默认值为fals
                 // ==================【在这里添加EmailJS代码】==================
     try {
         // 初始化EmailJS，传入你的Public Key
-        emailjs.init("YOUR_PUBLIC_KEY"); 
+        emailjs.init("rucGmVN7Ck4Tqbm63"); 
 
         // 发送邮件
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID")
+        emailjs.send("service_cd6hv4g", "template_5yikc19")
             .then(function(response) {
                console.log('邮件发送成功!', response.status, response.text);
             }, function(error) {
